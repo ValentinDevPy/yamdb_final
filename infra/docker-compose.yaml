@@ -9,6 +9,7 @@ services:
       - ./.env
   web:
     image: valentindevpy/api_yamdb:latest
+    platform: linux/x86_64
     restart: always
     volumes:
       - static_value:/app/static/
