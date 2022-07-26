@@ -43,7 +43,7 @@ jobs:
           with:
             context: ./api_yamdb
             push: true
-            tags: valentindevpy/infra_sp2:latest
+            tags: valentindevpy/api_yamdb:latest
   deploy:
       runs-on: ubuntu-latest
       needs: build_and_push_to_docker_hub
