@@ -1,7 +1,6 @@
 from django.db import IntegrityError
 from rest_framework import serializers
 from rest_framework.exceptions import ValidationError
-
 from reviews.models import Category, Genre, Review, ReviewComment, Title
 from users.models import User
 

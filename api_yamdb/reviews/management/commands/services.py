@@ -2,7 +2,6 @@ import csv
 import os
 
 from django.conf import settings
-
 from reviews.models import Category, Genre, Review, ReviewComment, Title
 from users.models import User
 

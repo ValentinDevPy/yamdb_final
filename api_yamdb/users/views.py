@@ -3,10 +3,10 @@ from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
-from .functions import (create_access_token,
-                        create_confirmation_code, send_signup_mail)
+from .functions import (create_access_token, create_confirmation_code,
+                        send_signup_mail)
 from .models import User
-from .serializers import SignUpSerializer, AuthSerializer
+from .serializers import AuthSerializer, SignUpSerializer
 
 
 @api_view(['POST'])

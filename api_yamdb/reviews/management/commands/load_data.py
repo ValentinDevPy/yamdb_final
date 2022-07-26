@@ -1,8 +1,7 @@
 from django.core.management.base import BaseCommand
 
-from .services import (get_categories, get_genres,
-                       get_titles, get_users,
-                       get_reviews, get_comments)
+from .services import (get_categories, get_comments, get_genres, get_reviews,
+                       get_titles, get_users)
 
 
 class Command(BaseCommand):
