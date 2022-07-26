@@ -9,6 +9,8 @@ RUN apt-get update \
     && pip install psycopg2
 RUN pip3 install -r requirements.txt --no-cache-dir
 
+RUN python3 manage.py migrate
+
 COPY . .
 
 CMD ["gunicorn", "api_yamdb.wsgi:application", "--bind", "0:8000" ]
