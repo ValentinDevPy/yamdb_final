@@ -1,10 +1,7 @@
 ![workflow](https://github.com/ValentinDevPy/yamdb_final/actions/workflows/yamdb_workflow.yml/badge.svg)
-
-# yamdb_final
-
-yamdb_final
-
 # YaMDb api
+
+Ознакомиться с проектом можно по адресу: http://62.84.122.38/
 
 ## Самая актуальная версия API всемирно известного YaMDb.
 
