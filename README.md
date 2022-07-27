@@ -26,7 +26,7 @@ YaTube API это RESTful API, позволяющий создавать и ре
 - [Django REST Framework](https://www.django-rest-framework.org/) - фреймворк, расширяющий возможности Django и
   позволяющий быстро писать RESTful API для Django-проектов.
 
-Конечно же YaTube API это ПО с открытым исходным кодом и [публичным репозиторием](https://github.com/krapiwin/api_yamdb)
+Конечно же YaTube API это ПО с открытым исходным кодом и [публичным репозиторием](https://github.com/ValentinDevPy/yamdb_final)
 на GitHub.
 
 ## Пользовательские роли
@@ -40,6 +40,60 @@ YaTube API это RESTful API, позволяющий создавать и ре
 ```Администратор (admin) — полные права на управление всем контентом проекта. Может создавать и удалять произведения, категории и жанры. Может назначать роли пользователям.```
 
 ```Суперюзер Django — обладет правами администратора (admin)```
+
+
+## Начало работы
+
+### Как запустить проект:
+
+Сделайте форк репозитория https://github.com/ValentinDevPy/yamdb_final и склонируйте этот форк на свою рабочую машину.
+
+
+Сделайте push образа контейнера из api_yamdb/Dockerfile в ваш DockerHub.
+
+
+Скопируйте файлы docker-compose.yaml и nginx/default.conf из  директории 
+проекта на сервер в home/<ваш_username>/docker-compose.yaml и home/<ваш_username>/nginx/default.conf соответственно.
+
+Добавьте следующие SECRETS для вашего репозитория:
+
+```
+DB_ENGINE -engine вашей базы данных
+DB_HOST - адрес вашей базы данных
+DB_NAME - имя вашей базы данных
+DB_PORT - порт по которому происходит подключение к БД
+POSTGRES_USER - пользователь вашей базы данных
+POSTGRES_PASSWORD - пароль от вашей БД
+
+DOCKER_USERNAME - ваше имя пользователя DockerHub
+DOCKER_PASSWORD - ваш пароль DockerHub
+
+HOST - ip адрес вашего сервера
+USER - пользователь удаленного сервера
+PASSPHRASE - секретная фраза от вашего SSH ключа (если она есть)
+SSH_KEY - ключ SSH с вашего локального компьютера
+
+TELEGRAM_TO - ваш Telegram id
+TELEGRAM_TOKEN - токен бота, который используется для уведомлений
+```
+
+После запуска контейнера необходимо собрать статику на удаленном сервере:
+
+```
+ docker-compose exec web python manage.py collectstatic
+```
+
+После сборки статики выполнить миграции:
+
+```
+docker-compose exec web python manage.py migrate
+```
+
+API будет доступен по адресу:
+
+```
+http://<HOST>/api/v1/
+```
 
 ## Примеры работы с API:
 
